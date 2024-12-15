@@ -51,7 +51,7 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+   <audio id="audio" loop preload="auto">
         <source src="https://sophiakho1.github.io/sophia-net-art-2024/audio/trainstation.mp3" type="audio/mpeg">
         
     </audio>
@@ -68,5 +68,24 @@
         <a href="page5.html">2. Meet the tourist waiting for his train</a><br>
         <a href="intro.html">3. Return to the beginning</a>
     </p>
+    <button id="toggleAudio">play/pause audio</button>
+
+    <!--AND THIS IS SOME Javascript THAT JUST PLAYS/PAUSES THEE AUDIO WHEN THE BUTTON IS PRESSED-->
+    <script>
+        const audioElement = document.getElementById('audio');
+        const toggleButton = document.getElementById('toggleAudio');
+
+        toggleButton.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play()
+                    .then(() => {
+                        toggleButton.textContent = 'pause audio';
+                    });
+            } else {
+                audioElement.pause();
+                toggleButton.textContent = 'play audio';
+            }
+        });
+           </script>
 </body>
 </html>
