@@ -48,7 +48,7 @@
 <body>
 
 
-    <audio autoplay loop>
+    <audio id="audio" loop preload="auto">
         <source src="https://sophiakho1.github.io/sophia-net-art-2024/audio/centralpark.mp3" type="audio/mpeg">
         
     </audio>
@@ -63,5 +63,26 @@
         <a href="page6.html">Meet the dog playing fetch</a><br>
         <a href="page7.html">Meet the man painting portraits</a>
     </p>
+     
+    <!--I ADDED THIS BUTTON TO TOGGLE AUDIO ON/OFF ON PAGE-->
+    <button id="toggleAudio">play/pause audio</button>
+
+    <!--AND THIS IS SOME Javascript THAT JUST PLAYS/PAUSES THEE AUDIO WHEN THE BUTTON IS PRESSED-->
+    <script>
+        const audioElement = document.getElementById('audio');
+        const toggleButton = document.getElementById('toggleAudio');
+
+        toggleButton.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play()
+                    .then(() => {
+                        toggleButton.textContent = 'pause audio';
+                    });
+            } else {
+                audioElement.pause();
+                toggleButton.textContent = 'play audio';
+            }
+        });
+    </script>
 </body>
 </html>
